@@ -6,6 +6,8 @@
 
 {% block content %} 
 	<h1>Welcome to home de el papayaso</h1>
+	<h1>{{ user.nombre }} -- {{ user.apellido}}</h1>
+	<a href="{{ url_for('auth.logout') }}">desloguearme</a>
 {% endblock content %}
 	
 	

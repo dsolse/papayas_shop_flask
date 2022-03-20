@@ -1,10 +1,13 @@
 from flask import Blueprint
+from flask.templating import render_template
+from flask_login import login_required, current_user
 
 site = Blueprint("site", __name__, url_prefix="/site")
 
 @site.route("/")
+@login_required
 def home():
-	return "home site"
+	return render_template("home.html", user=current_user)
 
 @site.route("/compras")
 def compras():

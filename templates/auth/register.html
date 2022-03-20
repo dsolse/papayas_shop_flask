@@ -6,6 +6,17 @@
 
 {% block content %} 
 	<h1>Registrate</h1>
+	<h1>words</h1>
+	<form action="{{ url_for('auth.register') }}" method="post">
+		{{ form.hidden_tag() }}
+		{{ form.nombre.label }}
+		{{ form.nombre }}
+		{{ form.apellido.label }}
+		{{ form.apellido }}
+		{{ form.password.label }}
+		{{ form.password }}
+		{{ form.submit }}
+	</form>
 {% endblock content %}
 
 	

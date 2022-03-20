@@ -1,6 +1,7 @@
+from flask_login.mixins import UserMixin
 from utilidades.db import db
 
-class Usuarios(db.Model): # type: ignore
+class Usuarios(db.Model, UserMixin): # type: ignore
 	"""
 	Campos de usuarios:	
 		id : int
