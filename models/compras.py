@@ -8,4 +8,12 @@ class Compras(db.Model): # type: ignore
 		producto : int
 		cantidad : int
 	"""
-	pass
+	id = db.Column(db.Integer, primary_key=True)
+	user = db.Column(db.Integer, db.ForeignKey('usuarios.id'))
+	producto =  db.Column(db.Integer, db.ForeignKey('productos.id'))
+	cantidad =db.Column(db.Integer)
+	
+	def __init__(self, user, producto, cantidad) -> None:
+		self.user = user
+		self.producto = producto
+		self.cantidad = cantidad
