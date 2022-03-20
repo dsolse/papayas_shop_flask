@@ -15,9 +15,9 @@ class Productos(db.Model): # type: ignore
 	precio = db.Column(db.Integer)
 	
 	# constructor para meter esos campos
-	def __init__(self, nombre, producto, cantidad, precio) -> None:
+	def __init__(self, nombre, calidad, precio) -> None:
 		self.nombre = nombre
-		self.cantidad = cantidad
+		self.calidad = calidad
 		self.precio = precio
 
 
