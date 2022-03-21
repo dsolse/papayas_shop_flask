@@ -6,6 +6,16 @@
 	{% block title %} {% endblock title %}
 </head>
 <body>
+	<header>
+		<a href="{{ url_for('site.home') }}">home</a>
+		<a href="{{ url_for('site.compras') }}">Compras</a>
+		<a href="{{ url_for('site.profile') }}">perfil</a>
+		{% if user.rank %}
+			<a href="{{ url_for('site.producto') }}">Producto</a>
+			<a href="{{ url_for('site.manage_user') }}">manage_user</a>
+		{% endif %}
+			
+	</header>
 	{% block content %}{% endblock content %}
 	
 	<footer>

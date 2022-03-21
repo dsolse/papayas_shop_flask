@@ -14,7 +14,34 @@
 
 
 <!-- Implement for user -->
+{% if not user.rank %}
+<form action="{{ url_for('site.compras') }}" method="post">
+	{{form.hidden_tag()}}
+	{{form.producto.label}}
+	{{form.producto}}
+	{{form.cantidad.label}}
+	{{form.cantidad}}
+	{{ form.submit }}
+</form>
+{% endif %}
 
+<table>
+	<tr>
+		<th>prodcuto</th>
+		<th>user</th>
+		<th>cantidad</th>
+	</tr>
+	{% for item in compras %}
+		<tr>
+			<td>
+				{{ item.producto }}
+				{{ item.user }}
+				{{ item.cantidad }}
+			</td>
+		</tr>
+	{% endfor %}
+		
+</table>
 
 	
 {% endblock content %}

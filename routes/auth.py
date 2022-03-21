@@ -17,6 +17,7 @@ def home():
 @auth.route('/login', methods=["POST", "GET"])
 def login():
 	form = LoginForm()
+	# method post
 	if form.validate_on_submit():
 		nombre = form.nombre.data
 		password = form.password.data
@@ -30,13 +31,18 @@ def login():
 @auth.route('/register', methods=["POST", "GET"])
 def register():
 	form = RegisterForm()
-	
 	if form.validate_on_submit():
 		nombre = form.nombre.data
 		apellido = form.apellido.data
 		passw = form.password.data
 		password = bcrypt.generate_password_hash(passw)
-		user = Usuarios(nombre=nombre, apellido=apellido, password=password)
+		# no hay campos
+		
+		if not Usuarios.query.all():
+			user = Usuarios(nombre=nombre, apellido=apellido, password=password, rank=True)
+		else:
+			user = Usuarios(nombre=nombre, apellido=apellido, password=password, rank=False)
+		
 		db.session.add(user)
 		db.session.commit()
 		return redirect(url_for('auth.login'))

@@ -13,6 +13,7 @@ app.config.from_object("config.BaseConfig")
 # Add blueprints
 app.register_blueprint(auth)
 app.register_blueprint(site)
+
 # Add services e inicializarlos
 SQLAlchemy(app)
 Bcrypt(app)

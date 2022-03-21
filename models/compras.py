@@ -17,3 +17,4 @@ class Compras(db.Model): # type: ignore
 		self.user = user
 		self.producto = producto
 		self.cantidad = cantidad
+		
