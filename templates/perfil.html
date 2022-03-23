@@ -1,0 +1,11 @@
+{% extends "baseApp.html" %}
+
+{% block title %} 
+	<title>Perfil {{ user.nombre }}</title>
+{% endblock title %}
+
+{% block content %} 
+	<h1>{{ user.apellido }}, {{ user.nombre }}</h1>
+	<a href="{{ url_for('auth.logout') }}">desloguearme</a>
+{% endblock content %}
+	

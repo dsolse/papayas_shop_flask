@@ -1,0 +1,22 @@
+{% extends "baseApp.html" %}
+
+{% block title %} 
+	<title>Perfil {{ user.nombre }}</title>
+{% endblock title %}
+
+{% block content %} 
+	<h1>ususarios de la app</h1>
+	<table>
+		<tr>
+			<th>nombre</th>
+			<th>apellido</th>
+		</tr>
+		{% for users in usuarios %}
+			<tr>
+				<td>{{ users.nombre }}</td>
+				<td>{{ users.apellido }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock content %}
+	
